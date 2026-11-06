@@ -10,12 +10,12 @@
   <header id="site-header">
     <div class="header-content">
       <img src="IIITV_LOGO.png" alt="IIIT Vadodara Logo" style="width: 120px; height: auto;">
-      <h1>Indian Institute of Information Technology Vadodara</h1>
+      <h1 id="title">Indian Institute Of Information Technology Vadodara</h1>
     </div>
   </header>
 
   <nav class="site-nav">
-    <button class="menu-toggle" aria-label="Toggle navigation menu">&#9776;</button>
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
     <div class="nav-links">
       <a href="#about">About Us</a>
       <a href="https://iiitvadodara.ac.in/index.php" target="_blank" rel="noopener noreferrer">Contact Us</a>
@@ -29,82 +29,66 @@
       <p class="intro">Welcome to the exciting events organized in our college</p>
       <p>Students can participate in coding, sports, music, and dance events.</p>
 
-      <div class="event-cards">
-        <article class="card">
-          <h3>Coding Event</h3>
-          <p>Day: Monday</p>
-          <span class="badge">Tech</span>
-        </article>
-        <article class="card">
-          <h3>E-Sports</h3>
-          <p>Day: Tuesday</p>
-          <span class="badge">Gaming</span>
-        </article>
-        <article class="card">
-          <h3>Music</h3>
-          <p>Day: Wednesday</p>
-          <span class="badge">Cultural</span>
-        </article>
-        <article class="card">
-          <h3>Dance</h3>
-          <p>Day: Thursday</p>
-          <span class="badge">Cultural</span>
-        </article>
+      <!-- B6: search box (filters the cards as you type, Esc clears) -->
+      <div class="search-bar">
+        <label for="search">Search events:</label>
+        <input type="search" id="search" placeholder="Type a title or category (Esc clears)" autocomplete="off">
       </div>
 
+      <!-- B7: shows Loading / summary / error -->
+      <p id="status" class="status" role="status" hidden></p>
+
+      <!-- B2: cards are built by script.js from events.json -->
+      <div class="event-cards" id="event-cards" aria-live="polite"></div>
+
       <div class="table-container">
-        <table>
+        <table id="event-table">
           <thead>
             <tr>
               <th>Event</th>
               <th>Day</th>
+              <th>Seats</th>
+              <th>Status</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Coding Event</td>
-              <td>Monday</td>
-            </tr>
-            <tr>
-              <td>E-Sports</td>
-              <td>Tuesday</td>
-            </tr>
-            <tr>
-              <td>Music</td>
-              <td>Wednesday</td>
-            </tr>
-            <tr>
-              <td>Dance</td>
-              <td>Thursday</td>
-            </tr>
-          </tbody>
+          <tbody></tbody>
         </table>
       </div>
     </section>
 
     <section class="event-form">
       <h2>Submit Your Event</h2>
-      <form>
+      <!-- B8: novalidate turns off the browser's pop-ups so our own message is shown -->
+      <form id="event-form" novalidate>
+        <label for="person-name">Your name:</label>
+        <input type="text" id="person-name" name="person-name" placeholder="Enter your name" required>
+
         <label for="event-date">Date:</label>
-        <input type="date" id="event-date" name="event-date">
+        <input type="date" id="event-date" name="event-date" required>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email">
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
         <label for="location">Location:</label>
-        <input type="text" id="location" name="location" placeholder="Enter event location">
+        <input type="text" id="location" name="location" placeholder="Enter event location" required
+               pattern="[A-Za-z0-9 ,.\-]{3,60}"
+               title="3 to 60 characters: letters, numbers, spaces, commas, dots or hyphens.">
 
         <label for="description">Description:</label>
-        <textarea id="description" name="description" placeholder="Describe your event"></textarea>
+        <textarea id="description" name="description" placeholder="Describe your event" maxlength="200"></textarea>
 
         <button type="submit">Submit</button>
+        <p id="form-message" class="form-message" role="alert"></p>
       </form>
     </section>
 
     <blockquote>"Great events bring students together and create unforgettable memories."</blockquote>
   </main>
+
   <footer class="site-footer">
     <p id="about">IIIT Vadodara provides students with opportunities to learn, compete, and participate in different activities.</p>
   </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

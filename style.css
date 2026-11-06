@@ -5,16 +5,15 @@
 }
 
 :root {
-  --brand: #003366;                           
-  --accent: rgb(220, 53, 69);                   
-  --highlight: hsl(180, 75%, 85%);              
-  --paper: #ffffff;                             
-  --ink: #222222;                               
+  --brand: #003366;
+  --accent: rgb(220, 53, 69);
+  --highlight: hsl(180, 75%, 85%);
+  --paper: #ffffff;
+  --ink: #222222;
   --ink-light: #555555;
-  --overlay: rgba(0, 0, 0, 0.4);                
-  --shadow-color: rgba(0, 0, 0, 0.08);         
+  --overlay: rgba(0, 0, 0, 0.4);
+  --shadow-color: rgba(0, 0, 0, 0.08);
 
-  /* A5. Type Scale in rem */
   --font-base: Arial, sans-serif;
   --font-size-small: 0.875rem;
   --font-size-body: 1rem;
@@ -105,7 +104,7 @@ img {
 }
 
 .nav-links {
-  display: none; 
+  display: none;
   flex-direction: column;
   gap: 0.75rem;
   margin-top: 0.75rem;
@@ -121,11 +120,11 @@ img {
 }
 
 a[href^="https"]::after {
-  content: " \2197"; 
+  content: " \2197";
   font-size: var(--font-size-small);
 }
 
-   .event-cards {
+.event-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 1.25rem;
@@ -264,13 +263,109 @@ blockquote::after {
   vertical-align: -0.4rem;
 }
 
+/* ===== Lab 6 additions (used by script.js) ===== */
+
+/* B4: nav links shown when the hamburger is toggled on small screens */
+.nav-links.open {
+  display: flex;
+}
+
+/* B6: search box */
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 32rem;
+  margin: 1rem 0;
+}
+
+/* B7: loading / success / error messages */
+.status {
+  padding: 0.6rem 0.9rem;
+  border-radius: 4px;
+  border-left: 4px solid var(--brand);
+  background-color: var(--paper);
+}
+
+.status[hidden] {
+  display: none;
+}
+
+.status.loading {
+  border-left-color: #fd7e14;
+}
+
+.status.success {
+  border-left-color: #28a745;
+}
+
+.status.error {
+  border-left-color: var(--accent);
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.empty-message {
+  grid-column: 1 / -1;
+  font-style: italic;
+}
+
+/* B3: state shown on cards */
+.card.full {
+  opacity: 0.7;
+  border-color: var(--accent);
+}
+
+.availability {
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.avail-open { color: #1e7e34; }
+.avail-few-left { color: #b35c00; }
+.avail-full { color: var(--accent); }
+
+.rsvp {
+  width: fit-content;
+  min-width: 6rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--brand);
+  color: var(--paper);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.rsvp:hover:not(:disabled) {
+  background-color: #002244;
+}
+
+.rsvp:disabled {
+  background-color: #888888;
+}
+
+/* B8: form feedback (only after the first submit attempt) */
+.was-submitted input:invalid,
+.was-submitted textarea:invalid {
+  border-color: var(--accent);
+  border-width: 2px;
+}
+
+.form-message {
+  margin: 0;
+  font-weight: bold;
+}
+
+.form-message.error { color: var(--accent); }
+.form-message.success { color: #1e7e34; }
+
 @media (min-width: 40rem) {
   .menu-toggle {
-    display: none; 
+    display: none;
   }
 
   .nav-links {
-    display: flex; 
+    display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1.5rem;

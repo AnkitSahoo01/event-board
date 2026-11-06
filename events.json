@@ -1,0 +1,6 @@
+[
+  { "id": 1, "title": "Coding Event", "date": "2026-11-09", "category": "Tech",     "seats": 20, "online": false },
+  { "id": 2, "title": "E-Sports",     "date": "2026-11-10", "category": "Gaming",   "seats": 3,  "online": true  },
+  { "id": 3, "title": "Music",        "date": "2026-11-11", "category": "Cultural", "seats": 0,  "online": false },
+  { "id": 4, "title": "Dance",        "date": "2026-11-12", "category": "Cultural", "seats": 12, "online": false }
+]
