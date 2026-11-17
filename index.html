@@ -28,18 +28,13 @@
       <p class="intro">Welcome to the exciting events organized in our college</p>
       <p>Students can participate in coding, sports, music, and dance events.</p>
 
-      <!-- B6: search box (filters the cards as you type, Esc clears) -->
       <div class="search-bar">
         <label for="search">Search events:</label>
         <input type="search" id="search" placeholder="Type a title or category (Esc clears)" autocomplete="off">
       </div>
 
-      <!-- B7: shows Loading / summary / errorr -->
       <p id="status" class="status" role="status" hidden></p>
-
-      <!-- B2: cards are built by script.js from events.json -->
       <div class="event-cards" id="event-cards" aria-live="polite"></div>
-
       <div class="table-container">
         <table id="event-table">
           <thead>
@@ -57,7 +52,6 @@
 
     <section class="event-form">
       <h2>Submit Your Event</h2>
-      <!-- B8: novalidate turns off the browser's pop-ups so our own message is shown -->
       <form id="event-form" novalidate>
         <label for="person-name">Your name:</label>
         <input type="text" id="person-name" name="person-name" placeholder="Enter your name" required>

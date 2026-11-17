@@ -11,7 +11,7 @@
   --paper: #ffffff;
   --ink: #222222;
   --ink-light: #555555;
-  --overlay: rgba(0, 0, 0, 0.4);
+    --overlay: rgba(0, 0, 0, 0.4);
   --shadow-color: rgba(0, 0, 0, 0.08);
 
   --font-base: Arial, sans-serif;
@@ -262,15 +262,10 @@ blockquote::after {
   font-size: 2rem;
   vertical-align: -0.4rem;
 }
-
-/* ===== Lab 6 additions (used by script.js) ===== */
-
-/* B4: nav links shown when the hamburger is toggled on small screens */
 .nav-links.open {
   display: flex;
 }
 
-/* B6: search box */
 .search-bar {
   display: flex;
   flex-direction: column;
@@ -279,7 +274,6 @@ blockquote::after {
   margin: 1rem 0;
 }
 
-/* B7: loading / success / error messages */
 .status {
   padding: 0.6rem 0.9rem;
   border-radius: 4px;
@@ -310,7 +304,6 @@ blockquote::after {
   font-style: italic;
 }
 
-/* B3: state shown on cards */
 .card.full {
   opacity: 0.7;
   border-color: var(--accent);
@@ -343,8 +336,6 @@ blockquote::after {
 .rsvp:disabled {
   background-color: #888888;
 }
-
-/* B8: form feedback (only after the first submit attempt) */
 .was-submitted input:invalid,
 .was-submitted textarea:invalid {
   border-color: var(--accent);
